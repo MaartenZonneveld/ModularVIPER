@@ -23,15 +23,13 @@ enum UserOverviewModule: UIKitStoryboardModule {
         typealias Module = ThisModule
 
         typealias View = UserListViewController
-        typealias Interactor = UserListInteractor
         typealias Presenter = UserListPresenter
     }
 
     enum UserDetailComponent: ComponentProtocol {
         typealias Module = ThisModule
 
-        typealias View = UserListViewController
-        typealias Interactor = UserListInteractor
-        typealias Presenter = UserListPresenter
+        typealias View = UserDetailViewController
+        typealias Presenter = UserDetailPresenter
     }
 }

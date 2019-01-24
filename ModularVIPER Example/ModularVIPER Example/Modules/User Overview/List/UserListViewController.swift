@@ -9,7 +9,7 @@ import ModularVIPER
 
 internal protocol UserListViewProtocol: ViewProtocol {
 
-    func showUserCollection(_ users: [User])
+    func showUserCollection()
     func show(error: LocalizedError)
 }
 
@@ -25,14 +25,10 @@ internal final class UserListViewController: UIViewController {
     @IBOutlet
     private weak var tableView: UITableView!
 
-    private var tableViewData: [User] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "All Users"
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -47,7 +43,7 @@ extension UserListViewController: UITableViewDelegate {
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let item = self.tableViewData[indexPath.item]
+        let item = self.presenter.users[indexPath.item]
 
         self.presenter.viewSelectedUser(id: item.id)
     }
@@ -56,13 +52,13 @@ extension UserListViewController: UITableViewDelegate {
 extension UserListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableViewData.count
+        return self.presenter.users.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
 
-        let item = self.tableViewData[indexPath.item]
+        let item = self.presenter.users[indexPath.item]
 
         cell.textLabel?.text = item.name
 
@@ -72,8 +68,8 @@ extension UserListViewController: UITableViewDataSource {
 
 extension UserListViewController: UserListViewProtocol {
 
-    func showUserCollection(_ users: [User]) {
-        self.tableViewData = users
+    func showUserCollection() {
+        self.tableView.reloadData()
     }
 
     func show(error: LocalizedError) {

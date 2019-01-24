@@ -7,7 +7,6 @@ public protocol PresenterProtocol {
     associatedtype Component: ComponentProtocol
 
     var view: Component.View? { get set } // weak
-    var interactor: Component.Interactor { get } // strong
 
     init()
 }

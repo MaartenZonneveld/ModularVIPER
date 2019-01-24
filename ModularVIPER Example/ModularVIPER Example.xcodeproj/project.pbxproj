@@ -20,6 +20,8 @@
 		2CB64E1D21F9EFAB0085122F /* ModularVIPER.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB64E1321F9EE640085122F /* ModularVIPER.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2CB64E2221F9F0320085122F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB64E2121F9F0320085122F /* LaunchScreen.storyboard */; };
 		2CB64E2421F9F0440085122F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB64E2321F9F0440085122F /* Main.storyboard */; };
+		2CC2E9FF21FA3D650091FEB2 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2E9FE21FA3D650091FEB2 /* UserDetailPresenter.swift */; };
+		2CC2EA0121FA3D730091FEB2 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2EA0021FA3D730091FEB2 /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,8 @@
 		2CB64E1621F9EE800085122F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2CB64E2121F9F0320085122F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB64E2321F9F0440085122F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2CC2E9FE21FA3D650091FEB2 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
+		2CC2EA0021FA3D730091FEB2 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +89,7 @@
 		2CB64DEE21F9ECBD0085122F /* ModularVIPER Example */ = {
 			isa = PBXGroup;
 			children = (
-				2CB64E0121F9EDE40085122F /* View */,
-				2CB64E1521F9EE740085122F /* Model */,
+				2CC2E9FC21FA2B310091FEB2 /* Core */,
 				2CB64E0221F9EDF10085122F /* Modules */,
 				2CB64E1821F9EEC60085122F /* Resources */,
 				2CB64DFB21F9ECBF0085122F /* Info.plist */,
@@ -119,7 +122,7 @@
 				2CB64E0821F9EE2B0085122F /* UserOverviewModule.swift */,
 				2CB64E0721F9EE2B0085122F /* UserOverviewRouter.swift */,
 				2CB64E0421F9EE0B0085122F /* List */,
-				2CB64E0521F9EE100085122F /* Detail */,
+				2CC2E9FD21FA3D420091FEB2 /* Detail */,
 			);
 			path = "User Overview";
 			sourceTree = "<group>";
@@ -127,18 +130,11 @@
 		2CB64E0421F9EE0B0085122F /* List */ = {
 			isa = PBXGroup;
 			children = (
+				2CB64E0D21F9EE490085122F /* UserListViewController.swift */,
 				2CB64E0E21F9EE490085122F /* UserListInteractor.swift */,
 				2CB64E0C21F9EE490085122F /* UserListPresenter.swift */,
-				2CB64E0D21F9EE490085122F /* UserListViewController.swift */,
 			);
 			path = List;
-			sourceTree = "<group>";
-		};
-		2CB64E0521F9EE100085122F /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		2CB64E1221F9EE640085122F /* Frameworks */ = {
@@ -163,6 +159,24 @@
 				2CB64DF621F9ECBF0085122F /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2CC2E9FC21FA2B310091FEB2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2CB64E0121F9EDE40085122F /* View */,
+				2CB64E1521F9EE740085122F /* Model */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2CC2E9FD21FA3D420091FEB2 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2CC2EA0021FA3D730091FEB2 /* UserDetailViewController.swift */,
+				2CC2E9FE21FA3D650091FEB2 /* UserDetailPresenter.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,10 +253,12 @@
 			files = (
 				2CB64E1021F9EE490085122F /* UserListViewController.swift in Sources */,
 				2CB64E1121F9EE490085122F /* UserListInteractor.swift in Sources */,
+				2CC2EA0121FA3D730091FEB2 /* UserDetailViewController.swift in Sources */,
 				2CB64E0A21F9EE2B0085122F /* UserOverviewRouter.swift in Sources */,
 				2CB64E0F21F9EE490085122F /* UserListPresenter.swift in Sources */,
 				2CB64E0B21F9EE2B0085122F /* UserOverviewModule.swift in Sources */,
 				2CB64DF021F9ECBD0085122F /* AppDelegate.swift in Sources */,
+				2CC2E9FF21FA3D650091FEB2 /* UserDetailPresenter.swift in Sources */,
 				2CB64E1721F9EE800085122F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

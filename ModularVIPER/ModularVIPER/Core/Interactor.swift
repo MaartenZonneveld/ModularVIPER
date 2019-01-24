@@ -4,6 +4,5 @@
 //
 
 public protocol InteractorProtocol {
-    associatedtype Component: ComponentProtocol
 
 }

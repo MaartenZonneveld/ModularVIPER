@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vWq-o0-PLL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="f59-Jg-kFw">
+            <objects>
+                <navigationController id="vWq-o0-PLL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ymt-Hf-7IX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaK-Li-BjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1265" y="89"/>
+        </scene>
         <!--User List View Controller-->
         <scene sceneID="b07-GN-wTV">
             <objects>
-                <viewController storyboardIdentifier="UserListViewController" id="Z8L-HS-2RB" customClass="UserListViewController" customModule="VIPER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListViewController" id="Z8L-HS-2RB" customClass="UserListViewController" customModule="ModularVIPER_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jyN-eh-sgg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +45,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TiD-8e-alu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="27H-PH-kCw"/>
                     <connections>
                         <outlet property="tableView" destination="tr1-gD-tcs" id="OW9-Fe-bHb"/>
                     </connections>
@@ -39,6 +53,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTi-gn-G6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-321" y="89"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="d3O-pk-aes">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailViewController" id="U8d-u2-cZ6" customClass="UserDetailViewController" customModule="ModularVIPER_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dto-TW-dTH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-LJ-M1G">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0Kg-LJ-M1G" firstAttribute="leading" secondItem="lgj-vU-eZh" secondAttribute="leading" id="OpD-yr-r8d"/>
+                            <constraint firstItem="lgj-vU-eZh" firstAttribute="bottom" secondItem="0Kg-LJ-M1G" secondAttribute="bottom" id="azd-7N-meF"/>
+                            <constraint firstItem="0Kg-LJ-M1G" firstAttribute="top" secondItem="lgj-vU-eZh" secondAttribute="top" id="wYg-ri-sDd"/>
+                            <constraint firstItem="lgj-vU-eZh" firstAttribute="trailing" secondItem="0Kg-LJ-M1G" secondAttribute="trailing" id="yRF-Hm-kJo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lgj-vU-eZh"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="0Kg-LJ-M1G" id="loe-Po-Mfl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-dP-Jxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="89"/>
         </scene>
     </scenes>
 </document>

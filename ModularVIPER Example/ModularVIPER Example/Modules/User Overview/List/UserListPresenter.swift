@@ -18,9 +18,16 @@ internal class UserListPresenter: PresenterProtocol {
     typealias Component = UserOverviewModule.UserListComponent
 
     weak var view: Component.View?
-    let interactor = Component.Interactor()
+    private let interactor = UserListInteractor()
+
+    private(set) var users: [User] = [] {
+        didSet {
+            self.view?.showUserCollection()
+        }
+    }
 
     required init() {
+        
     }
 }
 
@@ -29,16 +36,23 @@ extension UserListPresenter: UserListPresenterProtocol {
     func findUsers() {
 
         self.interactor.findAllUsers(success: { users in
-            self.view?.showUserCollection(users.sortByName())
+            self.users = users
         }, failure: { error in
+            self.users = []
             self.view?.show(error: error)
         })
     }
 
     func viewSelectedUser(id: String) {
-        if let viewController = self.viewController() {
-            Component.Module.Router.userDetail.performRoute(from: viewController)
+
+        guard
+            let user = self.users.first(where: { $0.id == id }),
+            let viewController = self.viewController() else {
+                return
         }
+
+        let destination = Component.Module.Router.pushDetail.performRoute(from: viewController) as? Component.Module.UserDetailComponent.View
+        destination?.presenter.setup(with: user)
     }
 }
 

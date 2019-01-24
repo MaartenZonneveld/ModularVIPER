@@ -7,5 +7,7 @@ import UIKit.UIViewController
 
 public protocol UIKitRouterProtocol: RouterProtocol where Module: UIKitStoryboardModule {
 
-    func performRoute(from: UIViewController, sender: Any?)
+    static func entry() -> (view: UIViewController, root: UIViewController)
+
+    func performRoute(from: UIViewController, sender: Any?) -> UIViewController
 }

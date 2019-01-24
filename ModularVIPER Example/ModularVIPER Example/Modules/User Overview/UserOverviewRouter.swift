@@ -7,40 +7,37 @@ import UIKit
 
 import ModularVIPER
 
-internal enum UserOverviewRouter: String, UIKitRouterProtocol {
+internal enum UserOverviewRouter: UIKitRouterProtocol {
     typealias Module = UserOverviewModule
 
-    case list
-    case userDetail
+    case pushDetail
 
-    private func buildView() -> UIViewController {
-
-        let optionalView: UIViewController?
-
+    private func buildComponentViewController() -> UIViewController {
+        
         switch self {
-        case .list:
-            optionalView = Module.UserListComponent.buildView()
-        case .userDetail:
-            print("User Detail")
-            optionalView = nil
-        }
-
-        if let view = optionalView {
-            return view
-        } else {
-            fatalError("Could not build view")
+        case .pushDetail:
+            return Module.UserDetailComponent.buildView()
         }
     }
 
-    func performRoute(from: UIViewController, sender: Any? = nil) {
+    static func entry() -> (view: UIViewController, root: UIViewController) {
 
-        let view = self.buildView()
+        guard let navigationController = Module.storyboard().instantiateInitialViewController() as? UINavigationController else {
+            fatalError()
+        }
+        let view = Module.UserListComponent.buildView(embedIn: navigationController)
+        return (view, navigationController)
+    }
+
+    func performRoute(from: UIViewController, sender: Any? = nil) -> UIViewController {
+
+        let destination = self.buildComponentViewController()
 
         switch self {
-        case .list:
-            print("List")
-        case .userDetail:
-            from.showDetailViewController(view, sender: sender)
+        case .pushDetail:
+            from.show(destination, sender: sender)
         }
+
+        return destination
     }
 }
